@@ -1,6 +1,7 @@
 /**
  * 모의고사
  * @url https://programmers.co.kr/learn/courses/30/lessons/42840
+ * @date 2020-09-14(월)
  * @comment 더 효율적으로 할 수 있을 것 같은데 아쉽다.
  */
 function solution(answers) {
