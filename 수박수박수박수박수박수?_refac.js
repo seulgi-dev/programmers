@@ -1,5 +1,5 @@
 /**
- * 수박수박수박수박수박수?
+ * 수박수박수박수박수박수?_refac.js
  * @url https://programmers.co.kr/learn/courses/30/lessons/12922
  * @date 2020-09-15(화)
  * @comment [as-is] 8.4ms -> [to-be] 0.05ms
