@@ -1,33 +1,47 @@
 /**
  * 체육복
  * @url https://programmers.co.kr/learn/courses/30/lessons/42862
- * @date 2020-09-17(목)
- * @comment 예외처리 필요(1. 도난 당한 후 앞,뒤로 대여가능 한 경우 2. 여분이 있는데 도난당한 경우)
+ * @date 2020-09-18(금)
+ * @comment 코드 제출 시 틀렸는데 당췌 모르겠다.
  */
 function solution(n, lost, reserve) {
     var answer = 0;
-    var tempArr = [];
-    var tempArr2 = [];
-    var reserveCtn = 0;
-    var cantReserve = [];
-    
-    for(var i=0; i<lost.length; i++){
-        var isReserve = false;
-        
-        for(var j=0; j<reserve.length; j++){
-            if( (reserve[j] == (lost[i]-1)) || (reserve[j] == (lost[i]+1)) ){
-                isReserve = true;
+   
+    // 1. 도난 학생, 여벌 학생 같은 수 찾기
+    for(var i=0; i<reserve.length; i++){
+        for(var j=0; j<lost.length; j++){
+            if(reserve[i] == lost[j]){
+                reserve.splice(i, 1);
+                lost.splice(j, 1);
                 break;
             }
         }
-        
-        console.log(isReserve);
-        if(!isReserve) cantReserve[cantReserve.length] = lost[i];
     }
     
-    console.log(cantReserve);
-
-    answer = n-cantReserve.length;
+    // 2. 나머지 도난 학생, 여벌 학생 - 1 같은 수 찾기
+    for(var i=0; i<reserve.length; i++){
+        for(var j=0; j<lost.length; j++){
+            if(reserve[i] == (lost[j]-1)){
+                reserve.splice(i, 1);
+                lost.splice(j, 1);
+                break;
+            }
+        }
+    }
+    
+    // 3. 나머지 도난 학생, 여벌 학생 + 1 같은 수 찾기
+    for(var i=0; i<reserve.length; i++){
+        for(var j=0; j<lost.length; j++){
+            if(reserve[i] == (lost[j]+1)){
+                reserve.splice(i, 1);
+                lost.splice(j, 1);
+                break;
+            }
+        }
+    }
+    
+    // 4. 전체 학생 - 최종 남은 도난 학생 
+    answer = (n-lost.length);
     
     return answer;
 }
