@@ -6,13 +6,13 @@
  */
 function solution(n, lost, reserve) {
     var answer = 0;
-   
+    
     // 1. 도난 학생, 여벌 학생 같은 수 찾기
     for(var i=0; i<reserve.length; i++){
         for(var j=0; j<lost.length; j++){
             if(reserve[i] == lost[j]){
-                reserve.splice(i, 1);
-                lost.splice(j, 1);
+                reserve[i] = 0;
+                lost[j] = 0;
                 break;
             }
         }
@@ -22,8 +22,8 @@ function solution(n, lost, reserve) {
     for(var i=0; i<reserve.length; i++){
         for(var j=0; j<lost.length; j++){
             if(reserve[i] == (lost[j]-1)){
-                reserve.splice(i, 1);
-                lost.splice(j, 1);
+                reserve[i] = 0;
+                lost[j] = 0;
                 break;
             }
         }
@@ -33,11 +33,15 @@ function solution(n, lost, reserve) {
     for(var i=0; i<reserve.length; i++){
         for(var j=0; j<lost.length; j++){
             if(reserve[i] == (lost[j]+1)){
-                reserve.splice(i, 1);
-                lost.splice(j, 1);
+                reserve[i] = 0;
+                lost[j] = 0;
                 break;
             }
         }
+    }
+    
+    while(lost.indexOf(0) > -1){
+        lost.splice(lost.indexOf(0),1);
     }
     
     // 4. 전체 학생 - 최종 남은 도난 학생 
