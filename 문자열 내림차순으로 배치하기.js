@@ -1,14 +1,13 @@
 /**
  * 문자열 내림차순으로 배치하기.js
  * @url https://programmers.co.kr/learn/courses/30/lessons/12917
- * @date 2020-09-19(토)
- * @comment 재 시도해보기 
+ * @date 2020-09-19(토), 2020-09-21(월)
+ * @comment 
  */
 function solution(s) {
     var answer = '';
     var Upper = '';
     var Lower = '';
-    var sArr = [];
     
     for(var i=0; i<s.length; i++){
         // 대문자 일 때
@@ -21,24 +20,10 @@ function solution(s) {
         }
     }
     
-    for(i=0; i<Lower.length; i++){
-        sArr.push(Lower.substring(i, i+1));
-    }
-    sArr.sort();
-        
-    for(i=0; i<sArr.length; i++){
-        answer += sArr[i];
-    }
+    // 문자열 ''로 분리, 정렬, 내림차순, ''로 다시 합치기
+    Upper = Upper.split('').sort().reverse().join('');
+    Lower = Lower.split('').sort().reverse().join('');
     
-    for(i=0; i<Upper.length; i++){
-        sArr.push(Upper.substring(i, i+1));
-    }
-    sArr.sort();
-        
-    for(i=0; i<sArr.length; i++){
-        answer += sArr[i];
-    }
-    
-    return answer;
+    return Lower+Upper;
     
 }
