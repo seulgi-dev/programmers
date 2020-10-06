@@ -1,7 +1,7 @@
 /**
  * 시저 암호.js
  * @url https://programmers.co.kr/learn/courses/30/lessons/12926?language=javascript
- * @date 2020-10-02(금)
+ * @date 2020-10-02(금), 2020-10-06(화)
  * @comment 
  */
 function solution(s, n) {
@@ -19,19 +19,19 @@ function solution(s, n) {
         
         // 소문자
         if(tempLowArr.indexOf(temp) != -1){
-            index = tempLowArr.indexOf(temp);
-            answer += (index < 15 ? tempLowArr[index+n] : tempLowArr[n-1]);
+            index = tempLowArr.indexOf(temp);            
+            answer += ( (index+n) >= 26 ? tempLowArr[index+n-26] : tempLowArr[index+n]);
             
         // 대문자
         }else if(tempUppArr.indexOf(temp) != -1){
             index = tempUppArr.indexOf(temp);
-            answer += (index < 15 ? tempUppArr[index+n] : tempUppArr[n-1]);
+            answer += ( (index+n) >= 26 ? tempUppArr[index+n-26] : tempUppArr[index+n]);
             
         // 공백
         }else{
             answer += temp;
         }
-    }
+    } 
     
     return answer;
 }
