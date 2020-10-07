@@ -3,6 +3,7 @@
  * @url https://programmers.co.kr/learn/courses/30/lessons/12950
  * @date 2020-10-06(화), 2020-10-07(수)
  * @comment n차원 배열 선언 시 각 행에 몇개의 열이 있는지 선언 필요
+            + ES6를 공부했다면 엄청 짧게 할 수 있었을 텐데..
  */
 function solution(arr1, arr2) {
     var myArray = [[]];
